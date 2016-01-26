@@ -1,0 +1,123 @@
+﻿@model FlightReservationSystem.Models.Ticket
+
+@{
+    ViewBag.Title = "Cancel a Ticket";
+}
+
+
+<h2>Cancel Ticket</h2>
+@if (Model.dateOfJourney.CompareTo(DateTime.Today) <=  0) {
+        <br/>
+        <div>Cannot cancel because of travel date. please check the terms and conditions of cancellation</div>
+        <br/>
+        @Html.ActionLink("Back to Booking History", "Index")
+
+}
+else
+{
+
+<h3>Are you sure you want to cancel this ticket?</h3>
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Flight.flightName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flight.flightName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment.paymentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment.paymentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule.source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule.source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfJourney)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfJourney)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seatNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seatNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passengerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passengerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emergencyContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emergencyContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.travelclass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.travelclass)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirm Cancellation" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Booking History", "Index")
+        </div>
+    }
+</div>
+}

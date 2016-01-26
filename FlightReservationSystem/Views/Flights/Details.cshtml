@@ -1,0 +1,50 @@
+﻿@model FlightReservationSystem.Models.Flight
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Flight</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.flightName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flightName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seatFirstclass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seatFirstclass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seatBusinessclass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seatBusinessclass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seatEconomyclass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seatEconomyclass)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.flightId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

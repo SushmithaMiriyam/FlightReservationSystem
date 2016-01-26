@@ -1,0 +1,129 @@
+﻿@model FlightReservationSystem.Models.Ticket
+    
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Ticket Booking</h2>
+
+View
+@using (Html.BeginForm("Payment", "Reservations", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Ticket</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.flightId, "flightId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("flightId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.flightId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Flight 
+            </div> 
+            <div class="col-md-10">
+                @ViewBag.flightName
+                @*@Html.DropDownList("flightId",null, htmlAttributes: new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.flightId, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Hidden("flightId", Model.flightId)
+        </div>
+
+        <div class="form-group">
+                @Html.Hidden("scheduleId", Model.scheduleId)
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Date Of Journey :
+            </div>
+            <div class="col-md-10">
+                @Model.dateOfJourney.ToShortDateString()
+                @Html.Hidden("dateOfJourney", Model.dateOfJourney)
+            </div>
+            @*@Html.DisplayFor(model => model.dateOfJourney)*@
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.travelclass, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Hidden("travelclass", Model.travelclass)
+                @Model.travelclass
+                @*@Html.EditorFor(model => model.travelclass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.travelclass, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.seatNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seatNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.seatNo, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.passengerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.passengerName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.passengerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="gender" class="form-control">
+                    <option value="F">F</option>
+                    <option value="M">M</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.phoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.phoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.emergencyContact, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emergencyContact, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.emergencyContact, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Proceed to payment" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

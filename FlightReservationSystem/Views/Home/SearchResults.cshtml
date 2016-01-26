@@ -1,0 +1,151 @@
+﻿@model IEnumerable<FlightReservationSystem.Models.Schedule>
+
+@{
+    ViewBag.Title = "SearchResults";
+}
+
+<h2>SearchResults</h2>
+<br/>
+@ViewBag.ScheduleMessage
+<br/>
+<h4>Source : @ViewBag.Source | Destination: @ViewBag.Dest </h4><br/>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Flight.flightName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduleDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.depatureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.arrivalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.arrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            (First class) Available Seats | Cost
+        </th>
+        <th>
+            (Business class) Available Seats | Cost        
+        </th>
+        <th>
+            (Economy class) Available Seats | Cost
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.traveltype)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flight.flightName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduleDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.depatureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.arrivalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.arrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FCseats) | 
+            @Html.DisplayFor(modelItem => item.costFirst) | 
+            @if (! item.scheduleDate.ToShortDateString().Contains(DateTime.Today.ToShortDateString()))
+            {
+                if (item.FCseats > 0)
+                {
+                    using (Html.BeginForm("Book", "Reservations", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("sid", item.scheduleId)
+                        @Html.Hidden("fid", item.flightId)
+                        @Html.Hidden("doj", item.scheduleDate)
+                        @Html.Hidden("name", item.Flight.flightName)
+                        @Html.Hidden("Tclass", "First")
+                    <input type="submit" value="Book" class="btn"/>
+                    }
+
+                }
+            }
+            else
+            {
+                <div>cannot book!!</div>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BCseats) | 
+            @Html.DisplayFor(modelItem => item.costBusiness) | 
+            @if (!item.scheduleDate.ToShortDateString().Contains(DateTime.Today.ToShortDateString()))
+            {
+                if (item.BCseats > 0)
+                {
+                    using (Html.BeginForm("Book", "Reservations", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("sid", item.scheduleId)
+                        @Html.Hidden("fid", item.flightId)
+                        @Html.Hidden("doj", item.scheduleDate)
+                        @Html.Hidden("name", item.Flight.flightName)
+                        @Html.Hidden("Tclass", "Business")
+                        <input type="submit" value="Book" class="btn" />
+                    }
+
+                }
+            }
+            else
+            {
+                <div>cannot book!!</div>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ECseats) | 
+            @Html.DisplayFor(modelItem => item.costEconomy) | 
+            @if (!item.scheduleDate.ToShortDateString().Contains(DateTime.Today.ToShortDateString()))
+            {
+                if (item.ECseats > 0)
+                {
+                    using (Html.BeginForm("Book", "Reservations", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("sid", item.scheduleId)
+                        @Html.Hidden("fid", item.flightId)
+                        @Html.Hidden("doj", item.scheduleDate)
+                        @Html.Hidden("name", item.Flight.flightName)
+                        @Html.Hidden("Tclass", "Economy")
+                        <input type="submit" value="Book" class="btn" />
+                    }
+
+                }
+            }
+            else
+            {
+                <div>cannot book!!</div>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.traveltype)
+        </td>
+        @*<td>
+        @Html.ActionLink("Book", "Book", "Reservations", new { sid = item.scheduleId, fid = item.flightId, doj = item.scheduleDate, name = item.Flight.flightName }, null) }   
+        </td>*@
+    </tr>
+}
+
+</table>

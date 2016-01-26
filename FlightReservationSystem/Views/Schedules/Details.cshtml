@@ -1,0 +1,130 @@
+﻿@model FlightReservationSystem.Models.Schedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Flight.flightName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flight.flightName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sourceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sourceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.destId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.destId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.scheduleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scheduleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.depatureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.depatureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arrivalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arrivalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costFirst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costFirst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costBusiness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costBusiness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costEconomy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costEconomy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.traveltype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.traveltype)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.scheduleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

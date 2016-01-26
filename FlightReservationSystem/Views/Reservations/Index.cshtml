@@ -1,0 +1,86 @@
+﻿@model IEnumerable<FlightReservationSystem.Models.Ticket>
+
+@{
+    ViewBag.Title = "Booking History";
+}
+
+<h2>Booking History</h2>
+
+<p>
+    @Html.ActionLink("Book ticket", "Index","Home")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ticketId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.flightId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flight.flightName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Schedule.source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Schedule.dest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateOfJourney)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.seatNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passengerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ticketId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.flightId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flight.flightName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule.source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule.dest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateOfJourney)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.seatNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passengerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phoneNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.ticketId }) |
+            @Html.ActionLink("Cancel", "CancelTicket", new { id=item.ticketId })
+        </td>
+    </tr>
+}
+
+</table>

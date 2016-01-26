@@ -1,0 +1,174 @@
+﻿@model FlightReservationSystem.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ticketId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ticketId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.flightId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scheduleId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.scheduleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flight.flightName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flight.flightName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flight.flightName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment.paymentMode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment.paymentMode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfJourney)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfJourney)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule.source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule.source)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule.depatureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule.depatureTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule.dest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule.dest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule.arrivalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule.arrivalDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule.arrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule.arrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seatNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seatNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passengerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passengerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emergencyContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emergencyContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.travelclass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.travelclass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentId)
+        </dd>
+
+
+        <dt>
+            CostOfTicket
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment.totalAmount)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to History", "Index") | @Html.ActionLink("Cancel Ticket", "CancelTicket", new { id = Model.ticketId }) 
+</p>
